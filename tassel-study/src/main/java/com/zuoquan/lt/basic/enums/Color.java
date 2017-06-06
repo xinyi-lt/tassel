@@ -14,6 +14,9 @@ public enum Color {
         this.index  = index;
         this.name = name;
     }
+    Color(int index){
+        this.index  = index;
+    }
 
     public int getIndex() {
         return index;

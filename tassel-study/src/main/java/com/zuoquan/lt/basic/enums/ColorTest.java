@@ -25,5 +25,6 @@ public class ColorTest {
         for (Color color : colors) {
             System.out.println(color.getName());
         }
+
     }
 }

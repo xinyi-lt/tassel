@@ -1,2 +1,4 @@
 .idea
 /*.iml
+/tassel-common/target
+/tassel-study/target
