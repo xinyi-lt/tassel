@@ -2,3 +2,7 @@
 /*.iml
 /tassel-common/target
 /tassel-study/target
+/tassel-consumer/target
+/tassel-study/tassel-study.iml
+*.iml
+/tassel-common/*.iml
