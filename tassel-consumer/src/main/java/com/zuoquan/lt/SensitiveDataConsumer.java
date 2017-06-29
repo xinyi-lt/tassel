@@ -2,6 +2,7 @@ package com.zuoquan.lt;
 
 import com.touna.loan.sensitive.facade.dto.SensitiveDataDTO;
 import com.touna.loan.sensitive.facade.intf.SensitiveDataFacade;
+import com.zuoquan.lt.rpc.Result;
 
 import java.util.List;
 
@@ -18,8 +19,9 @@ public class SensitiveDataConsumer {
 
 
     public List<SensitiveDataDTO> testDubboService(){
-        List<SensitiveDataDTO> list = sensitiveDataFacade.getSensitiveDataList();
-        return list;
+        Result<List<SensitiveDataDTO>> result = sensitiveDataFacade.getSensitiveDataList();
+
+        return result.getData();
     }
 
 }

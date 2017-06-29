@@ -7,11 +7,11 @@
            http://code.alibabatech.com/schema/dubbo
            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="sensitive-consumer" />
-    <dubbo:registry id="sensitive-data-consumer" address="zookeeper://127.0.0.1:2181" check="true" />
+    <dubbo:application name="security-consumer" />
+    <dubbo:registry id="security-data-consumer" address="zookeeper://127.0.0.1:2181" check="true" />
 
     <dubbo:consumer timeout="200000" check="false"/>
     <dubbo:protocol name="dubbo" port="20882" />
 
-    <dubbo:reference id="sensitiveDataFacade" interface="com.touna.loan.sensitive.facade.intf.SensitiveDataFacade" registry="sensitive-data-consumer" version="${sensitiveDataDubbo.version}" />
+    <dubbo:reference id="sensitiveDataFacade" interface="com.touna.loan.sensitive.facade.intf.SensitiveDataFacade" registry="security-data-consumer" version="${securityDataDubbo.version}" />
 </beans>

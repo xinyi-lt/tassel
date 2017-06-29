@@ -14,11 +14,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.zuoquan.lt</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>tassel-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${parent.version}</version>
         </dependency>
-
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
