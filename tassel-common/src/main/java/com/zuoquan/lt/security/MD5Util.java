@@ -1,4 +1,4 @@
-package com.zuoquan.lt.util;
+package com.zuoquan.lt.security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
