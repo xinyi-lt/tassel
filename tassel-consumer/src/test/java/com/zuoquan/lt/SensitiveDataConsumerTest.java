@@ -23,7 +23,7 @@ public class SensitiveDataConsumerTest extends BaseTest {
 
     @Test
     public void testDubboService() throws BizException {
-        Result<String> result = sensitiveDataConsumer.testDubboService("f576898b5dfc0d0ead8809cd6dd384bd4dda4fd6bb40b6a44607bc1f0e0c7036");
+        Result<String> result = sensitiveDataConsumer.testDubboService("0192023a7bbd73250516f069df18b500");
 //        Result<String> result = sensitiveDataConsumer.testDubboService("18996321457");
         System.out.println(result.getData());
         Assert.assertNotNull(result.getData());
@@ -49,23 +49,25 @@ public class SensitiveDataConsumerTest extends BaseTest {
     public void testDubboDTOListService() throws BizException {
         List<SensitiveDataDTO> list = new ArrayList<>();
         SensitiveDataDTO dto1 = new SensitiveDataDTO();
-        dto1.setDataType(SensitiveDataType.PHONE_NUMBER.getCode());
-        dto1.setClearText("18688269907");
+        dto1.setDataType(SensitiveDataType.CAR_NUMBER.getCode());
+        dto1.setClearText("粤B888XU");
 
         list.add(null);
         list.add(dto1);
         list.add(null);
 
         SensitiveDataDTO dto2 = new SensitiveDataDTO();
+        dto2.setClearText("12235884sa");
         list.add(dto2);
 
         SensitiveDataDTO dto3 = new SensitiveDataDTO();
-        dto3.setClearText("");
+        dto3.setClearText("广东省信宜市朱砂镇里五有汶口村33号");
+        dto3.setDataType(SensitiveDataType.DETAIL_ADDRESS.getCode());
         list.add(dto3);
 
         SensitiveDataDTO dto4 = new SensitiveDataDTO();
         dto4.setDataType(SensitiveDataType.ID_NUMBER.getCode());
-        dto4.setClearText("CNM1586971423690X");
+        dto4.setClearText("14072219901225110X");
 
         list.add(dto4);
         Result result = sensitiveDataConsumer.testDubboDTOListService(list);
