@@ -45,6 +45,11 @@
             <artifactId>tassel-common</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>3.4.6</version>
+        </dependency>
     </dependencies>
 
 </project>
