@@ -17,10 +17,10 @@ import java.util.List;
  */
 public class MessageConsumer {
     public static void main(String[] args) throws MQClientException {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("testGroup");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("testGroupfff");
         consumer.setNamesrvAddr("127.0.0.1:9876");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-        consumer.subscribe("testTopic", "*");
+        consumer.subscribe("testTopic", "testTag");
 
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             @Override

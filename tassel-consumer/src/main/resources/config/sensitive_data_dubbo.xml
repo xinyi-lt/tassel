@@ -8,7 +8,7 @@
            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="security-consumer" />
-    <dubbo:registry id="security-data-consumer" address="zookeeper://127.0.0.1:2181" check="false" />
+    <dubbo:registry id="security-data-consumer" address="zookeeper://10.0.4.62:2181" check="false" />
 
     <dubbo:consumer timeout="200000" check="false"/>
     <dubbo:protocol name="dubbo"/>
