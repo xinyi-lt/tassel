@@ -13,12 +13,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by liutao on 2018/4/17.
  */
 public class MainTest {
-    public static void main(String[] args) throws ParseException, UnsupportedEncodingException {
+    public static void main(String[] args) throws ParseException, UnsupportedEncodingException, InterruptedException {
 
 //        BigDecimal test1 = new BigDecimal(1.01);
 //        BigDecimal test2 = BigDecimal.valueOf(1.01);
@@ -29,7 +30,7 @@ public class MainTest {
 //        BigDecimal percent = totalManageFee.divide(BigDecimal.valueOf(100000), 6, BigDecimal.ROUND_HALF_UP)
 //                .multiply(BigDecimal.valueOf(100)).setScale(0,BigDecimal.ROUND_DOWN);
 
-        System.out.println(totalManageFee.setScale(0,BigDecimal.ROUND_CEILING));
+//        System.out.println(totalManageFee.setScale(0,BigDecimal.ROUND_CEILING));
 //
 //        Integer applyId = 99184042;
 //        String unifiedApplyId = "99184042";
@@ -125,8 +126,9 @@ public class MainTest {
 //            System.out.println(format.format(startDateLoop) + ", " + format.format(endDateLoop));
 //        }
 
-        httpTest();
 
+//        httpTest();
+        requestRateLimiterTest();
     }
 
     public static final String URL = "http://10.0.4.69:9002/fee-calculate/get-loan-amount";
@@ -147,5 +149,22 @@ public class MainTest {
 
         System.out.println(invokeResult.toString());
         System.out.println(invokeResult.get("data"));
+    }
+
+    public static final String RequestRateLimiter = "http://localhost:9003/fee-config/demo/hello?name=niak&token=0993";
+
+
+    public static void requestRateLimiterTest() throws UnsupportedEncodingException, InterruptedException {
+        //限流测试
+        for (int i = 0; i < 20; i++) {
+            String result = HttpClientUtil.httpGet(RequestRateLimiter, null, null);
+
+            System.out.println(result + i);
+            if (i == 10){
+                //睡500毫秒
+                TimeUnit.MILLISECONDS.sleep(1200);
+            }
+        }
+
     }
 }
